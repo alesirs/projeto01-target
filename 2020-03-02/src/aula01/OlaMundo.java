@@ -95,8 +95,24 @@ public class OlaMundo {
         Double saidaIdade = Double.valueOf(idadeString);
         System.out.println(saidaIdade*2);
         
-        System.out.println("\b\b\b\b\b");
-        System.out.println("Tetando o git");
+        System.out.println("\b\b\b");
+        System.out.println("Testando o git");
         
+        //System.out.println(Soma(5d,4d));
+        
+        OlaMundo om = new OlaMundo();
+        Double r = om.Soma(4d, 5.5);
+        System.out.println(r);
+
+        Double r1 = om.Subtracao(r, 2.5);
+        System.out.println(r1);
+	}
+
+	public Double Soma(Double Valor1, Double Valor2) {
+		return Valor1 + Valor2;		
+	}
+	
+	public Double Subtracao(Double Valor1, Double Valor2) {
+		return Valor1 - Valor2;		
 	}
 }
