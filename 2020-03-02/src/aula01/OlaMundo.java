@@ -101,7 +101,7 @@ public class OlaMundo {
         //System.out.println(Soma(5d,4d));
         
         OlaMundo om = new OlaMundo();
-        Double r = om.soma(4d, 5.5);
+        Double r = om.soma(14d, 15.5);
         System.out.println(r);
 
         Double r1 = om.subtracao(r, 2.5);
@@ -111,7 +111,7 @@ public class OlaMundo {
 	}
 
 	public Double soma(Double Valor1, Double Valor2) {
-		if ((Valor1 > 10) && (Valor2 > 10)) {
+		if (Valor1 > 10 && Valor2 > 10) {
 			return Valor1 + Valor2;
 		} 
 		return -1.0;
