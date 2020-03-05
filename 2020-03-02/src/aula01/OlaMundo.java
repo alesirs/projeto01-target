@@ -106,13 +106,25 @@ public class OlaMundo {
 
         Double r1 = om.subtracao(r, 2.5);
         System.out.println(r1);
+        
+        om.imprimeNaTelaBoaNoite("Vai dormir");
 	}
 
 	public Double soma(Double Valor1, Double Valor2) {
-		return Valor1 + Valor2;		
+		if ((Valor1 > 10) && (Valor2 > 10)) {
+			return Valor1 + Valor2;
+		} 
+		return -1.0;
 	}
 	
 	public Double subtracao(Double Valor1, Double Valor2) {
 		return Valor1 - Valor2;		
 	}
+	
+	public void imprimeNaTelaBoaNoite(String Texto) {
+		System.out.println(Texto);
+	}
+	
+	
+	
 }
