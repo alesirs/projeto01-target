@@ -54,5 +54,5 @@ public class TrabalhandoComArrays {
 
 	}
 	
-
+    //TEMA: Escreva um programa que leia do usuario 10 salarios e calcule qual é o maior, menor e imprima na tela
 }
