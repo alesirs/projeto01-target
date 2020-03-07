@@ -135,20 +135,36 @@ public class OlaMundo {
 
 		Double media = om.calculaMedia(nota1, nota2);
 		media = om.calculaMedia(media, nota3);
-		System.out.println(String.format("A media das notas é: %.2f " , media));
+		System.out.println(String.format("1. A media das notas é: %.2f " , media));
 		
 		if (om.verificaAprovacao(media)) {
 			System.out.println("Parabens! Aluno aprovado!");
 		} else {
 			System.out.println("Aluno nao foi aprovado!");
 		}
+		
+		//media = media > 7.0 ? 10.0 : 22.0;
+		System.out.println(media = media > 7.0 ? 10.0 : 22.0);
+		
+		Double[] listaDeNotas = new Double[10];
+		listaDeNotas[0] = 1.0;
+		listaDeNotas[1] = 2.0;
+		listaDeNotas[2] = 3.0;
+		listaDeNotas[3] = 4.0;
+		listaDeNotas[4] = 5.0;
+		listaDeNotas[5] = 6.0;
+		listaDeNotas[6] = 7.0;
+		listaDeNotas[7] = 8.0;
+		listaDeNotas[8] = 9.0;
+		listaDeNotas[9] = 10.0;
+		
 	}
 
 	public Double soma(Double Valor1, Double Valor2) {
 		//if (Valor1 > 10 && Valor2 > 10) {
-			return Valor1 + Valor2;
-			//} 
-			//return -1.0;
+		return Valor1 + Valor2;
+		//} 
+		//return -1.0;
 	}
 
 	public Double subtracao(Double Valor1, Double Valor2) {
