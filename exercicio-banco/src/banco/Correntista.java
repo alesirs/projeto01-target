@@ -1,3 +1,4 @@
+package banco;
 
 public class Correntista {
 	String nome;
