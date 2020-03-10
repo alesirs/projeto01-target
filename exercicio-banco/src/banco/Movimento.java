@@ -1,14 +1,14 @@
 package banco;
 
 public class Movimento {
-	String tipo;
-	Double valor;
-	String descricao;
 
-	public String getTipo() {
+	private Integer tipo;
+	private Double valor;
+	private String descricao;
+	public Integer getTipo() {
 		return tipo;
 	}
-	public void setTipo(String tipo) {
+	public void setTipo(Integer tipo) {
 		this.tipo = tipo;
 	}
 	public Double getValor() {
@@ -23,5 +23,4 @@ public class Movimento {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
 }
