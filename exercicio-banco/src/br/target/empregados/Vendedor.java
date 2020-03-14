@@ -9,29 +9,13 @@ public class Vendedor extends Empregado {
 	}
 
 	public Vendedor(Double comissao, Double valorVendas) {
-	   setComissao(comissao);	
-	   setValorDasVendas(valorVendas);
+	   this.comissao = comissao;
+	   this.valorDasVendas = valorVendas;
 	}
 	
 	@Override
 	public double calcularRendimentos() {
-		return getValorDasVendas() + (getValorDasVendas() * getComissao());
-	}
-
-	public double getComissao() {
-		return comissao;
-	}
-
-	public void setComissao(double comissao) {
-		this.comissao = comissao;
-	}
-
-	public double getValorDasVendas() {
-		return valorDasVendas;
-	}
-
-	public void setValorDasVendas(double valorDasVendas) {
-		this.valorDasVendas = valorDasVendas;
+		return this.valorDasVendas + (this.valorDasVendas * this.comissao / 100);
 	}
 
 }

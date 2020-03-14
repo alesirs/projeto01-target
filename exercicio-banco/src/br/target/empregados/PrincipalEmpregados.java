@@ -1,7 +1,5 @@
 package br.target.empregados;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import br.target.empregados.Empregado;
@@ -11,7 +9,112 @@ import br.target.empregados.Vendedor;
 
 public class PrincipalEmpregados {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
+
+		PrincipalEmpregados pe = new PrincipalEmpregados();
+		try {
+			pe.executar();
+		} catch (EntradaInvalidaException e) {
+			e.printStackTrace();
+		}
+		
+		//pe.imprimePosicao(2);
+	}
+
+	private void imprimePosicao(int posicao) {
+		try {
+			int[] myNumbers = {1,2,3};
+			System.out.println(myNumbers[posicao]);
+		}
+		catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println(e.getMessage());
+			//System.out.println("Posicao invalida");
+			//thrown new PosicaoInvalidaException;
+		}
+		
+		
+	}
+
+	private void executar() throws EntradaInvalidaException {
+		Scanner entradaConsole = new Scanner(System.in);
+		String funcaoEmpregado = null;
+		for (; ;) {
+			int tipoEmpregado = 0;
+			System.out.println("Informe o tipo de empregado: ");
+			
+			System.out.print("1-Vendedor / 2-Instrutor / 3-Gerente / 0-Sair: ");
+			entradaConsole = new Scanner(System.in);
+			//Tratar excecao em caso de digitacao de texto. Pegar o fonte do professor
+			//Tratar todo o tipo de excecao
+			//
+			try {
+			   tipoEmpregado = Integer.valueOf(entradaConsole.next());
+			} catch (NumberFormatException e) {
+				throw new EntradaInvalidaException();
+			}
+
+			Empregado empregado = null;
+
+			switch (tipoEmpregado) {
+			case 0: {
+				break;
+			}
+			case 1: {
+				funcaoEmpregado = "Vendedor";
+				System.out.println("\n-------------"+funcaoEmpregado+"-------------");
+				System.out.print("Informe o percentual de comissao: ");
+				Double comissao = Double.valueOf(entradaConsole.next());
+				System.out.print("Informe o valor das vendas: ");
+				Double valorDasVendas = Double.valueOf(entradaConsole.next());
+
+				Vendedor vendedor = new Vendedor(comissao, valorDasVendas);
+				empregado = vendedor;
+				break;
+			}
+			case 2: {
+				funcaoEmpregado = "Instrutor";
+				System.out.println("\n-------------"+funcaoEmpregado+"-------------");
+				System.out.print("Informe o valor da hora: ");
+				Double valorHora =  Double.valueOf(entradaConsole.next());
+				System.out.print("Informe as horas trabalhadas: ");
+				Integer horasTrabalhadas = Integer.valueOf(entradaConsole.next());
+				Instrutor instrutor = new Instrutor(horasTrabalhadas, valorHora);
+				empregado = instrutor;
+				break;
+			}
+			case 3: {
+				funcaoEmpregado = "Gerente";
+				System.out.println("\n-------------"+funcaoEmpregado+"-------------");
+				Gerente gerente = new Gerente();
+				System.out.print("Informe o salario: ");
+				gerente.setSalario(Double.valueOf(entradaConsole.next()));
+				System.out.print("Informe o valor da gratificacao: ");
+				gerente.setGratificacao(Double.valueOf(entradaConsole.next()));
+				empregado = gerente;
+				break;
+			}
+			default:{
+				throw new EntradaInvalidaException();
+			}
+			}
+
+			if (tipoEmpregado == 0) {
+				break;
+			}
+			
+			System.out.print("Informe o nome do " + funcaoEmpregado + ": ");
+			empregado.setNome(entradaConsole.next());
+			System.out.print("Informe a data de nascimento: ");
+			empregado.setDataNascimento(entradaConsole.next());
+			System.out.print("Informe o e-mail: ");
+			empregado.setEmail(entradaConsole.next());
+
+			System.out.printf("Recebiveis de "+empregado.getNome() + ": R$ %.2f\n\n", empregado.calcularRendimentos());
+
+		}
+	}
+
+	/*
 
         Scanner entradaConsole = new Scanner(System.in);
         for (int i=0; ; ) {
@@ -93,11 +196,10 @@ public class PrincipalEmpregados {
 		empregados.add(vendedorVariavel);
 		empregados.add(gerenteVariavel);
 		empregados.add(instrutor);
-		
+
 		for (Empregado empregado : empregados) {
 			System.out.println(empregado.getNome() + " --> " +  empregado.calcularRendimentos()); 
 		}
-		*/
-    }
-
+	 */
 }
+
